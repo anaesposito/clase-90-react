@@ -1,4 +1,5 @@
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import Agregar from "./Agregar";
 import "./Tarjeta.scss";
 import StarIcon from "@material-ui/icons/Star";
 const Tarjeta = ({ title, type, price, rating, img, isAvailable, onSale }) => {
@@ -22,6 +23,7 @@ const Tarjeta = ({ title, type, price, rating, img, isAvailable, onSale }) => {
         </p>
       </div>
       <img src={img} />
+      <Agregar />
     </div>
   );
 };
