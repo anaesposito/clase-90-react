@@ -1,7 +1,6 @@
-import { Divider } from "@material-ui/core";
 import { useState } from "react";
 
-const Agregar = () => {
+const Agregar = (handleClickBorrarTodos) => {
   const [contador, setContador] = useState(0);
   const handleClickMas = () => {
     setContador(contador + 1);
@@ -11,16 +10,18 @@ const Agregar = () => {
     setContador(contador - 1);
   };
 
-  const handleClickBorrar = () => {
-    setContador(0);
-  };
+  // const [borrador, setBorrador] = useState(false);
+  // const handleClickBorrarTodos = () => {
+  //   setBorrador(true);
+  // };
+
   return (
     <div>
       <p>Agregar</p>
       <button onClick={handleClickMas}>+</button>
       <button onClick={handleClickMenos}>-</button>
       <p>{contador}</p>
-      <button onClick={handleClickBorrar}>Vaciar carrito</button>
+      <button onClick={handleClickBorrarTodos}>Vaciar carrito</button>
     </div>
   );
 };

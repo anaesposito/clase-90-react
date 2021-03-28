@@ -1,8 +1,16 @@
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { useState } from "react";
 import Agregar from "./Agregar";
 import "./Tarjeta.scss";
+
 import StarIcon from "@material-ui/icons/Star";
+import { formatMs } from "@material-ui/core";
 const Tarjeta = ({ title, type, price, rating, img, isAvailable, onSale }) => {
+  const [borrador, setBorrador] = useState(false);
+
+  const handleClickBorrarTodos = () => {
+    setBorrador(true);
+  };
   return (
     <div>
       <div>
@@ -23,7 +31,7 @@ const Tarjeta = ({ title, type, price, rating, img, isAvailable, onSale }) => {
         </p>
       </div>
       <img src={img} />
-      <Agregar />
+      <Agregar handleClickBorrarTodos={handleClickBorrarTodos} />
     </div>
   );
 };
