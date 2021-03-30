@@ -1,4 +1,5 @@
 import Tarjeta from "./components/Tarjeta";
+import Search from "./components/Search";
 import "./App.css";
 
 /* <AddShoppingCartIcon color="black" size="medium" /> */
@@ -11,8 +12,9 @@ const App = () => {
       price: 2600,
       rating: 4,
       img: "https://i.imgur.com/ZAxMGG5.png",
-      isAvailable: true,
-      onSale: false,
+      category: "furniture",
+      color: "gray",
+      collection: "classic",
     },
     {
       title: "Keeve Set",
@@ -20,8 +22,9 @@ const App = () => {
       price: 590,
       rating: 4,
       img: "https://i.imgur.com/tT8sFIs.jpeg",
-      isAvailable: false,
-      onSale: false,
+      category: "furniture",
+      color: "wood",
+      collection: "modern",
     },
     {
       title: "Nillè",
@@ -29,8 +32,9 @@ const App = () => {
       price: 950,
       rating: 5,
       img: "https://i.imgur.com/Vx1cZY0.png",
-      isAvailable: false,
-      onSale: true,
+      category: "furniture",
+      color: "orange",
+      collection: "classic",
     },
     {
       title: "Blanko",
@@ -38,8 +42,9 @@ const App = () => {
       price: 90,
       rating: 4,
       img: "https://i.imgur.com/N1Bf4ox.jpg",
-      isAvailable: true,
-      onSale: false,
+      category: "furniture",
+      color: "white",
+      collection: "modern",
     },
     {
       title: "Momo",
@@ -47,8 +52,9 @@ const App = () => {
       price: 890,
       rating: 4,
       img: "https://i.imgur.com/AlKxDE4.jpeg",
-      isAvailable: true,
-      onSale: false,
+      category: "auxiliars",
+      color: "wood",
+      collection: "classic",
     },
     {
       title: "Penemillè",
@@ -56,8 +62,9 @@ const App = () => {
       price: 120,
       rating: 4,
       img: "https://i.imgur.com/pmANPjN.jpeg",
-      isAvailable: true,
-      onSale: false,
+      category: "furniture",
+      color: "white",
+      collection: "modern",
     },
     {
       title: "Kappu",
@@ -65,22 +72,28 @@ const App = () => {
       price: 420,
       rating: 4,
       img: "https://i.imgur.com/s2rsPa1.jpg",
-      isAvailable: true,
-      onSale: false,
+      category: "auxiliars",
+      color: "wood",
+      collection: "classic",
     },
   ];
-  return products.map((producto, i) => (
-    <Tarjeta
-      key={`idTarjeta-${i}`}
-      title={producto.title}
-      type={producto.type}
-      price={producto.price}
-      rating={producto.rating}
-      img={producto.img}
-      isAvailable={producto.isAvailable}
-      onSale={producto.onSale}
-    />
-  ));
-};
+  return (
+    <div>
+      <Search />
 
+      {products.map((producto, i) => (
+        <Tarjeta
+          key={`idTarjeta-${i}`}
+          title={producto.title}
+          type={producto.type}
+          price={producto.price}
+          rating={producto.rating}
+          img={producto.img}
+          category={producto.category}
+          collection={producto.collection}
+        />
+      ))}
+    </div>
+  );
+};
 export default App;

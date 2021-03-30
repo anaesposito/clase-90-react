@@ -5,20 +5,20 @@ import "./Tarjeta.scss";
 
 import StarIcon from "@material-ui/icons/Star";
 import { formatMs } from "@material-ui/core";
-const Tarjeta = ({ title, type, price, rating, img, isAvailable, onSale }) => {
+const Tarjeta = ({ title, type, price, rating, img, category, collection }) => {
   const [borrador, setBorrador] = useState(false);
 
   const handleClickBorrarTodos = () => {
     setBorrador(true);
   };
   return (
-    <div>
+    <div className="product-card">
       <div>
         <h1>{title}</h1>
-        <p>{isAvailable ? "Disponible" : "No Disponible"}</p>
-        <p>{onSale ? "EN OFERTA" : ""}</p>
         <p>Tipo: {type}</p>
         <p>${price}</p>
+        <p>Categoria: {category}</p>
+        <p>Coleccion:{collection}</p>
         <p>
           {rating === 4 ? (
             <span>
@@ -31,7 +31,8 @@ const Tarjeta = ({ title, type, price, rating, img, isAvailable, onSale }) => {
         </p>
       </div>
       <img src={img} />
-      <Agregar handleClickBorrarTodos={handleClickBorrarTodos} />
+      <AddShoppingCartIcon />
+      {/* <Agregar handleClickBorrarTodos={handleClickBorrarTodos} /> */}
     </div>
   );
 };
