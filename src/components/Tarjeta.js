@@ -12,28 +12,30 @@ const Tarjeta = ({ title, type, price, rating, img, category, collection }) => {
     setBorrador(true);
   };
   return (
-    <div className="product-card">
-      <div>
-        <h1>{title}</h1>
-        <p>Tipo: {type}</p>
-        <p>${price}</p>
-        <p>Categoria: {category}</p>
-        <p>Coleccion:{collection}</p>
-        <p>
-          {rating === 4 ? (
-            <span>
-              <StarIcon /> <StarIcon /> <StarIcon />
-              <StarIcon />
-            </span>
-          ) : (
-            ""
-          )}
-        </p>
-      </div>
+    <article className="product-card">
       <img src={img} />
-      <AddShoppingCartIcon />
+      <div className="card-info">
+        <div className="description-section">
+          <h4>{title}</h4>
+          <h6>{type}</h6>
+          <p>
+            {rating === 4 ? (
+              <span>
+                <StarIcon /> <StarIcon /> <StarIcon />
+                <StarIcon />
+              </span>
+            ) : (
+              ""
+            )}
+          </p>
+        </div>
+        <div className="price-section">
+          <p>${price}</p>
+          <AddShoppingCartIcon />
+        </div>
+      </div>
       {/* <Agregar handleClickBorrarTodos={handleClickBorrarTodos} /> */}
-    </div>
+    </article>
   );
 };
 

@@ -1,6 +1,6 @@
 import Tarjeta from "./components/Tarjeta";
-import Search from "./components/Search";
-import "./App.css";
+import NavBar from "./components/NavBar";
+import "./App.scss";
 
 /* <AddShoppingCartIcon color="black" size="medium" /> */
 
@@ -78,22 +78,25 @@ const App = () => {
     },
   ];
   return (
-    <div>
-      <Search />
-
-      {products.map((producto, i) => (
-        <Tarjeta
-          key={`idTarjeta-${i}`}
-          title={producto.title}
-          type={producto.type}
-          price={producto.price}
-          rating={producto.rating}
-          img={producto.img}
-          category={producto.category}
-          collection={producto.collection}
-        />
-      ))}
-    </div>
+    <>
+      <NavBar />
+      <section className="main-display">
+        <div className="cards-display">
+          {products.map((producto, i) => (
+            <Tarjeta
+              key={`idTarjeta-${i}`}
+              title={producto.title}
+              type={producto.type}
+              price={producto.price}
+              rating={producto.rating}
+              img={producto.img}
+              category={producto.category}
+              collection={producto.collection}
+            />
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 export default App;
